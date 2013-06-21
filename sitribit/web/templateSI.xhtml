@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+<!--        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />-->
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top" >
+            <ui:insert name="top">
+                <h:form>
+            <p:graphicImage value="/imagens/logo_.png"/>
+            <p:menubar>
+                <p:submenu label="Gestão de Pessoas">
+                        <p:submenu label="Funcionários">
+                            <p:menuitem value="Cadastrar" url="faces/funcionario/Create.xhtml"/> 
+                            <p:menuitem value="Buscar" url="faces/funcionario/List.xhtml"/> 
+                        </p:submenu> 
+                        
+                        <p:submenu label="Cargo">
+                            <p:menuitem value="Cadastrar" url="faces/cargo/Create.xhtml"/> 
+                            <p:menuitem value="Buscar" url="faces/cargo/List.xhtml"/> 
+                        </p:submenu>
+                        
+                        <p:submenu label="Cliente">
+                            <p:menuitem value="Cadastrar" url="faces/cliente/Create.xhtml"/> 
+                            <p:menuitem value="Buscar" url="faces/cliente/List.xhtml"/> 
+                        </p:submenu>
+
+                        <p:submenu label="Gestão">
+                            <p:menuitem value="Cadastrar" url="faces/gestao/Create.xhtml"/> 
+                            <p:menuitem value="Buscar" url="faces/gestao/List.xhtml"/> 
+                        </p:submenu>
+                        
+                        <p:submenu label="Papel">
+                            <p:menuitem value="Cadastrar" url="faces/papel/Create.xhtml"/> 
+                            <p:menuitem value="Buscar" url="faces/papel/List.xhtml"/> 
+                        </p:submenu>
+                    
+                        <p:submenu label="Permissão">
+                            <p:menuitem value="Cadastrar" url="faces/permissao/Create.xhtml"/> 
+                            <p:menuitem value="Buscar" url="faces/permissao/List.xhtml"/> 
+                        </p:submenu>
+                    
+                        <p:submenu label="Usuário">
+                            <p:menuitem value="Cadastrar" url="faces/usuario/Create.xhtml"/> 
+                            <p:menuitem value="Buscar" url="faces/usuario/List.xhtml"/> 
+                        </p:submenu>
+                    
+                    
+                </p:submenu>
+            </p:menubar>
+        </h:form>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">Bottom</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

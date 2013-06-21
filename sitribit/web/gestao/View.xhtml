@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewGestaoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewGestaoLabel_idGestao}"/>
+                    <h:outputText value="#{gestaoController.selected.idGestao}" title="#{bundle.ViewGestaoTitle_idGestao}"/>
+                    <h:outputText value="#{bundle.ViewGestaoLabel_ano}"/>
+                    <h:outputText value="#{gestaoController.selected.ano}" title="#{bundle.ViewGestaoTitle_ano}"/>
+                    <h:outputText value="#{bundle.ViewGestaoLabel_descricao}"/>
+                    <h:outputText value="#{gestaoController.selected.descricao}" title="#{bundle.ViewGestaoTitle_descricao}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{gestaoController.destroyAndView}" value="#{bundle.ViewGestaoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewGestaoEditLink}"/>
+                <br />
+                <h:commandLink action="#{gestaoController.prepareCreate}" value="#{bundle.ViewGestaoCreateLink}" />
+                <br />
+                <h:commandLink action="#{gestaoController.prepareList}" value="#{bundle.ViewGestaoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewGestaoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

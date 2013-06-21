@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFuncionarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFuncionarioLabel_idFuncionario}" for="idFuncionario" />
+                    <h:inputText id="idFuncionario" value="#{funcionarioController.selected.idFuncionario}" title="#{bundle.EditFuncionarioTitle_idFuncionario}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_idFuncionario}"/>
+                    <h:outputLabel value="#{bundle.EditFuncionarioLabel_matricula}" for="matricula" />
+                    <h:inputText id="matricula" value="#{funcionarioController.selected.matricula}" title="#{bundle.EditFuncionarioTitle_matricula}" />
+                    <h:outputLabel value="#{bundle.EditFuncionarioLabel_idCargo}" for="idCargo" />
+                    <h:selectOneMenu id="idCargo" value="#{funcionarioController.selected.idCargo}" title="#{bundle.EditFuncionarioTitle_idCargo}" >
+                        <f:selectItems value="#{cargoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFuncionarioLabel_pessoa}" for="pessoa" />
+                    <h:selectOneMenu id="pessoa" value="#{funcionarioController.selected.pessoa}" title="#{bundle.EditFuncionarioTitle_pessoa}" required="true" requiredMessage="#{bundle.EditFuncionarioRequiredMessage_pessoa}">
+                        <f:selectItems value="#{pessoaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{funcionarioController.update}" value="#{bundle.EditFuncionarioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFuncionarioViewLink}"/>
+                <br />
+                <h:commandLink action="#{funcionarioController.prepareList}" value="#{bundle.EditFuncionarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFuncionarioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

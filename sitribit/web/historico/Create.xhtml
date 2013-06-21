@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateHistoricoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateHistoricoLabel_dataInicio}" for="dataInicio" />
+                    <h:inputText id="dataInicio" value="#{historicoController.selected.dataInicio}" title="#{bundle.CreateHistoricoTitle_dataInicio}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateHistoricoLabel_dataFim}" for="dataFim" />
+                    <h:inputText id="dataFim" value="#{historicoController.selected.dataFim}" title="#{bundle.CreateHistoricoTitle_dataFim}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateHistoricoLabel_funcionario}" for="funcionario" />
+                    <h:selectOneMenu id="funcionario" value="#{historicoController.selected.funcionario}" title="#{bundle.CreateHistoricoTitle_funcionario}" required="true" requiredMessage="#{bundle.CreateHistoricoRequiredMessage_funcionario}">
+                        <f:selectItems value="#{funcionarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateHistoricoLabel_cargo}" for="cargo" />
+                    <h:selectOneMenu id="cargo" value="#{historicoController.selected.cargo}" title="#{bundle.CreateHistoricoTitle_cargo}" required="true" requiredMessage="#{bundle.CreateHistoricoRequiredMessage_cargo}">
+                        <f:selectItems value="#{cargoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateHistoricoLabel_gestao}" for="gestao" />
+                    <h:selectOneMenu id="gestao" value="#{historicoController.selected.gestao}" title="#{bundle.CreateHistoricoTitle_gestao}" required="true" requiredMessage="#{bundle.CreateHistoricoRequiredMessage_gestao}">
+                        <f:selectItems value="#{gestaoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{historicoController.create}" value="#{bundle.CreateHistoricoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{historicoController.prepareList}" value="#{bundle.CreateHistoricoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateHistoricoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
